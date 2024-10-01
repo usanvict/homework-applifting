@@ -10,8 +10,15 @@ This homework contains 3 sections:
 Test scenarios are based on the following diagram:
 ![online shopping diagram](https://www.uml-diagrams.org/examples/activity-examples-online-shopping.png)
 
+📁 ./test-cases:
+- ✨ browse-items.feature
+- ✨ cart-action.feature
+- ✨ checkout.feature
+- ✨ search-items.feature
+
 🥒 Gherkin syntax was used for the better readability
 
 ## Automated scenarios
 
 ## Test report
+

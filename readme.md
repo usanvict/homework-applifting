@@ -20,11 +20,21 @@ Implementation: Gherkin
 
 ## Automated scenarios
 
-Automated scenarios were based on ./test-cases/search-items.feature 
+Automated scenarios were based on ./test-cases/search-items.feature, but the real page was taken as an example, Rohlik.cz
 
 📁 ./automated-scenarios
 
 Implementation: Playwright + Typescript
+
+### How to run tests
+
+1. Get Node 20 or newer
+
+2. Install dependencies:
+    `npm install`
+
+3. Run the tests:
+    `npm run test`
 
 ## Test report
 

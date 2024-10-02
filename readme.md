@@ -2,7 +2,7 @@
 
 This homework repository contains three sections:
 - test scenarios based on an online shopping activity diagram.
-- automated scenarios, which are implemented from the provided test case from search-items.feature
+- automated scenarios, which are implemented from the provided test case from `search-items.feature`
 - test report  that reviews accessibility of Applifting.io
 
 ## Test scenarios
@@ -10,19 +10,19 @@ This homework repository contains three sections:
 Test scenarios are designed using the following diagram:
 ![online shopping diagram](https://www.uml-diagrams.org/examples/activity-examples-online-shopping.png)
 
-📁 ./test-cases:
-- browse-items.feature: scenarios for browsing available items
-- cart-action.feature: scenarios for interacting the cart
-- checkout.feature: scenarios related to the checkout process
-- search-items.feature: scenarios for searching the items
+📁 `./test-cases`:
+- `browse-items.feature`: scenarios for browsing available items
+- `cart-action.feature`: scenarios for interacting the cart
+- `checkout.feature`: scenarios related to the checkout process
+- `search-items.feature`: scenarios for searching the items
 
 Implementation: Gherkin syntax
 
 ## Automated scenarios
 
-Automated scenarios were based on ./test-cases/search-items.feature. These tests are designed to run against the real-world website Rohlik.cz (much likely to the diagram), which served as the basis for the testing.
+Automated scenarios were based on `./test-cases/search-items.feature`. These tests are designed to run against the real-world website Rohlik.cz (much likely to the diagram), which served as the basis for the testing.
 
-📁 ./automated-scenarios
+📁 `./automated-scenarios`
 
 Implementation: Playwright + Typescript
 

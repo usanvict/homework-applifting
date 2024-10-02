@@ -1,10 +1,13 @@
 # Accessibility test report for Applifting.io
 
 Date: October 2, 2024
+
 Webpage: https://applifting.io/
 
 Tools used: NVDA Screen Reader 2024.3.1
+
 Source of info: https://www.w3.org/WAI/standards-guidelines/wcag/
+
 Contrast checker: https://webaim.org/resources/contrastchecker/
 
 ## Summary
@@ -14,6 +17,7 @@ This report focuses on accessibility of https://applifting.io/ which is complain
 ## Scope
 
 Page tested: homepage of https://applifting.io/ 
+
 User group targeted: people with visual impairments
 
 ## Guidelines and compliance
@@ -22,6 +26,7 @@ User group targeted: people with visual impairments
 Provide text alternatives for any non-text content so that it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language.
 
 Issue: images on the webpage do not have alt descriptions, so screen readers do not provide any information when hovering over project pictures.
+
 Recommendation: add meaningful alt attributes to all images to ensure screen readers can describe the content accurately.
 
 ### Guideline 1.2 – Time-based Media
@@ -83,6 +88,7 @@ Observation: The webpage uses appropriate HTML language tags (lang attribute), w
 Make Web pages appear and operate in predictable ways.
 
 Issue: The "Services" link opens automatically without user input.
+
 Recommendation: Modify the behavior so that the link opens only when the user explicitly selects it (e.g., when pressing Enter or clicking).
 
 ### Guideline 3.3 – Input Assistance
@@ -90,6 +96,7 @@ Recommendation: Modify the behavior so that the link opens only when the user ex
 Help users avoid and correct mistakes.
 
 Issue: Error messages in the contact form are not accessible via screen reader, making it difficult for users to identify and correct mistakes.
+
 Recommendation: Ensure error messages are clearly focusable, so users can easily find and correct any input errors.
 
 ### Guideline 4.1 – Compatible
@@ -97,4 +104,5 @@ Recommendation: Ensure error messages are clearly focusable, so users can easily
 Maximize compatibility with current and future user agents, including assistive technologies.
 
 Issue: Several elements visually resemble buttons but are coded as links, which may confuse assistive technologies and users.
+
 Recommendation: Ensure that elements styled as buttons are properly coded with the button role or HTML element to align with accessibility expectations.

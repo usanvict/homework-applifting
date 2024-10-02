@@ -6,9 +6,7 @@ Scenario: user can open browsed items
     Then user sees item details
 
 Scenario: user can continue browsing
-    Given user is on browsing page
-    When user clicks on the first item
-    And item is opened
+    Given user has item details opened
     And user clicks Close button
     Then item is closed
     And user is on browsing page

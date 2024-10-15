@@ -13,31 +13,31 @@ test.describe("Searching for items", () => {
 	});
 
 	test("User searches for existing item and can open item", async () => {
-		await homePage.homeFindItem("Cibule");
+		await homePage.findItem("Cibule");
 		await searchPage.verifyResults('"Cibule');
 		await searchPage.clickFirstExistingItem();
 		await searchPage.verifyItemDetails();
 	});
 
 	test("User searches for non-existing invalid item", async () => {
-		await homePage.homeFindItem("nsnfdkjs");
+		await homePage.findItem("nsnfdkjs");
 		await searchPage.verifyResults('"nsnfdkjs"');
 	});
 
 	test("User searches for non-existing valid item", async () => {
-		await homePage.homeFindItem("Pocitadlo");
+		await homePage.findItem("Pocitadlo");
 		await searchPage.verifyResults('"Pocitadlo"');
 	});
 
 	test("User searches for empty item", async () => {
-		await homePage.homeFillInItem("");
+		await homePage.fillInItem("");
 		const url = searchPage.whatIsURL();
-		await homePage.homeLookForItem();
+		await homePage.lookForItem();
 		await searchPage.compareURLs(await url);
 	});
 
 	test("User can change search", async () => {
-		await homePage.homeFindItem("Cibule");
+		await homePage.findItem("Cibule");
 		await searchPage.verifyResults('"Cibule"');
 		await searchPage.findItem("nsnfdkjs");
 		await searchPage.verifyResults('"nsnfdkjs"');

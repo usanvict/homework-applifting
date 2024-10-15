@@ -1,9 +1,9 @@
 import { expect, type Locator, type Page } from "@playwright/test";
+import { AbstractPage } from "./abstractPage";
 
-export class SearchPage {
-	readonly page: Page;
-	readonly searchField: Locator;
-	readonly searchAction: Locator;
+export class SearchPage extends AbstractPage {
+	//readonly searchField: Locator;
+	//readonly searchAction: Locator;
 	readonly item: Locator;
 	readonly itemCard: Locator;
 	readonly itemDetail: Locator;
@@ -12,9 +12,9 @@ export class SearchPage {
 	readonly itemNumber: Locator;
 
 	constructor(page: Page) {
-		this.page = page;
-		this.searchField = page.locator("#searchGlobal");
-		this.searchAction = page.locator("[type='submit']");
+		super(page);
+		//this.searchField = page.locator("#searchGlobal");
+		//this.searchAction = page.locator("[type='submit']");
 		this.itemCard = page.locator('[data-test="productCard"]');
 		this.itemDetail = page.locator("#productDetail");
 		this.closeItemDetail = page.locator(
@@ -30,19 +30,6 @@ export class SearchPage {
 
 	async compareURLs(url: string) {
 		await expect(this.page).toHaveURL(url);
-	}
-
-	async fillInItem(item: string) {
-		await this.searchField.fill(item);
-	}
-
-	async lookForItem() {
-		await this.searchAction.click();
-	}
-
-	async findItem(item: string) {
-		await this.fillInItem(item);
-		await this.lookForItem();
 	}
 
 	async verifyResults(item: string) {

@@ -24,10 +24,6 @@ export class SearchPage {
 		this.itemNumber = page.locator('span[data-test="lblCount"]');
 	}
 
-	async visitHomepage() {
-		await this.page.goto("https://www.rohlik.cz/?hp=true");
-	}
-
 	async whatIsURL() {
 		return this.page.url();
 	}

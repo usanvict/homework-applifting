@@ -1,62 +1,65 @@
 import { test } from "@playwright/test";
 import { SearchPage } from "../page-objects/searchPage";
+import { HomePage } from "../page-objects/homePage";
 
 test.describe("Searching for items", () => {
+	let homePage: HomePage;
 	let searchPage: SearchPage;
 
 	test.beforeEach("Load homepage", async ({ page }) => {
+		homePage = new HomePage(page);
 		searchPage = new SearchPage(page);
-		searchPage.visitHomepage();
+		await homePage.visit();
 	});
 
 	test("User searches for existing item and can open item", async () => {
-		searchPage.findItem("Cibule");
-		searchPage.verifyResults('"Cibule');
-		searchPage.clickFirstExistingItem();
-		searchPage.verifyItemDetails();
+		await homePage.homeFindItem("Cibule");
+		await searchPage.verifyResults('"Cibule');
+		await searchPage.clickFirstExistingItem();
+		await searchPage.verifyItemDetails();
 	});
 
 	test("User searches for non-existing invalid item", async () => {
-		searchPage.findItem("nsnfdkjs");
-		searchPage.verifyResults('"nsnfdkjs"');
+		await homePage.homeFindItem("nsnfdkjs");
+		await searchPage.verifyResults('"nsnfdkjs"');
 	});
 
 	test("User searches for non-existing valid item", async () => {
-		searchPage.findItem("Pocitadlo");
-		searchPage.verifyResults('"Pocitadlo"');
+		await homePage.homeFindItem("Pocitadlo");
+		await searchPage.verifyResults('"Pocitadlo"');
 	});
 
 	test("User searches for empty item", async () => {
-		searchPage.fillInItem("");
+		await homePage.homeFillInItem("");
 		const url = searchPage.whatIsURL();
-		searchPage.lookForItem();
-		searchPage.compareURLs(await url);
+		await homePage.homeLookForItem();
+		await searchPage.compareURLs(await url);
 	});
 
 	test("User can change search", async () => {
-		searchPage.findItem("Cibule");
-		searchPage.verifyResults('"Cibule"');
-		searchPage.findItem("nsnfdkjs");
-		searchPage.verifyResults('"nsnfdkjs"');
+		await homePage.homeFindItem("Cibule");
+		await searchPage.verifyResults('"Cibule"');
+		await searchPage.findItem("nsnfdkjs");
+		await searchPage.verifyResults('"nsnfdkjs"');
 	});
 
 	test("User can continue browsing", async () => {
-		searchPage.findItem("Cibule");
-		searchPage.verifyResults('"Cibule"');
-		searchPage.clickFirstExistingItem();
-		searchPage.verifyItemDetails();
-		searchPage.closeDetails();
-		searchPage.verifyClosedDetails();
+		await searchPage.findItem("Cibule");
+		await searchPage.verifyResults('"Cibule"');
+		await searchPage.clickFirstExistingItem();
+		await searchPage.verifyItemDetails();
+		await searchPage.closeDetails();
+		await searchPage.verifyClosedDetails();
 	});
 
 	test("User can continue search after item has been added to cart", async () => {
-		searchPage.findItem("Cibule");
-		searchPage.verifyResults('"Cibule"');
-		searchPage.clickFirstExistingItem();
-		searchPage.verifyItemDetails();
-		searchPage.addToCart();
-		searchPage.verifyItemInCart();
-		searchPage.closeDetails();
-		searchPage.verifyClosedDetails();
+		await searchPage.findItem("Cibule");
+		await searchPage.verifyResults('"Cibule"');
+		await searchPage.clickFirstExistingItem();
+		await searchPage.verifyItemDetails();
+		await searchPage.addToCart();
+		await searchPage.verifyItemInCart();
+		await searchPage.closeDetails();
+		await searchPage.verifyClosedDetails();
 	});
 });

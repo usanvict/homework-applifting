@@ -4,7 +4,7 @@
   "description": "Automated scenarios with Playwright",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test"
+    "tests": "playwright test"
   },
   "author": "Victoria Usan",
   "license": "ISC",

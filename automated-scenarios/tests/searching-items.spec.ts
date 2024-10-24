@@ -14,7 +14,7 @@ test.describe("Searching for items", () => {
 
 	test("User searches for existing item and can open item", async () => {
 		await homePage.findItem("Cibule");
-		await searchPage.verifyResults('"Cibule');
+		await searchPage.verifyResults('"Cibule"');
 		await searchPage.clickFirstExistingItem();
 		await searchPage.verifyItemDetails();
 	});
